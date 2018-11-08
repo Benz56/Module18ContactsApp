@@ -23,6 +23,7 @@ public class ContactsApp extends Application {
         
         Scene scene = new Scene(root);
         
+        stage.setTitle("Contacts App");
         stage.setScene(scene);
         stage.show();
     }
