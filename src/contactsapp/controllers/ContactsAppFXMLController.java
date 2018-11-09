@@ -82,10 +82,8 @@ public class ContactsAppFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(ContactsApp.class.getResource("fxml/NewContactFXML.fxml"));
                 loader.setControllerFactory(cf -> new NewContactFXMLController(ContactsAppFXMLController.this));
 
-                Parent root = loader.load();
                 Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
+                stage.setScene(new Scene(loader.load()));
                 stage.show();
             } catch (IOException e) {
             }
