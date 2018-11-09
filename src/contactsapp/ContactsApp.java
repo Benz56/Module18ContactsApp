@@ -22,6 +22,7 @@ public class ContactsApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("fxml/ContactsAppFXML.fxml"));
         
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("css/CSS.css").toExternalForm());
         
         stage.setTitle("Contacts App");
         stage.setScene(scene);

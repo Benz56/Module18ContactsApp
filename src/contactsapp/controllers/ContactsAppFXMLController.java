@@ -83,7 +83,9 @@ public class ContactsAppFXMLController implements Initializable {
                 loader.setControllerFactory(cf -> new NewContactFXMLController(ContactsAppFXMLController.this));
 
                 Stage stage = new Stage();
-                stage.setScene(new Scene(loader.load()));
+                Scene scene = new Scene(loader.load());
+                scene.getStylesheets().add(ContactsApp.class.getResource("css/CSS.css").toExternalForm());
+                stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {
             }
