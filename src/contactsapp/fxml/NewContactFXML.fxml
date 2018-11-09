@@ -36,8 +36,8 @@
       </TextField>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="cancelButton" mnemonicParsing="false" prefWidth="1000.0" text="Cancel" />
-            <Button fx:id="addButton" mnemonicParsing="false" prefWidth="1000.0" text="Add" />
+            <Button fx:id="cancelButton" mnemonicParsing="true" prefWidth="1000.0" text="_Cancel" />
+            <Button fx:id="addButton" mnemonicParsing="true" prefWidth="1000.0" text="_Add" />
          </children>
       </HBox>
    </children>
