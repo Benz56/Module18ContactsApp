@@ -9,39 +9,39 @@
 
 
 <VBox fx:controller="contactsapp.controllers.NewContactFXMLController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="172.0" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label text="First Name" />
-      <TextField fx:id="firstName">
-         <VBox.margin>
-            <Insets bottom="15.0" />
-         </VBox.margin>
-      </TextField>
-      <Label text="Last Name" />
-      <TextField fx:id="lastName">
-         <VBox.margin>
-            <Insets bottom="15.0" />
-         </VBox.margin>
-      </TextField>
-      <Label text="E-Mail" />
-      <TextField fx:id="eMail">
-         <VBox.margin>
-            <Insets bottom="15.0" />
-         </VBox.margin>
-      </TextField>
-      <Label text="Phone Number" />
-      <TextField fx:id="phoneNumber">
-         <VBox.margin>
-            <Insets bottom="15.0" />
-         </VBox.margin>
-      </TextField>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="cancelButton" mnemonicParsing="true" prefWidth="1000.0" text="_Cancel" />
-            <Button fx:id="addButton" mnemonicParsing="true" prefWidth="1000.0" text="_Add" />
-         </children>
-      </HBox>
-   </children>
-   <padding>
-      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-   </padding>
+    <children>
+        <Label text="First Name" />
+        <TextField fx:id="firstName">
+            <VBox.margin>
+                <Insets bottom="15.0" />
+            </VBox.margin>
+        </TextField>
+        <Label text="Last Name" />
+        <TextField fx:id="lastName">
+            <VBox.margin>
+                <Insets bottom="15.0" />
+            </VBox.margin>
+        </TextField>
+        <Label text="E-Mail" />
+        <TextField fx:id="eMail">
+            <VBox.margin>
+                <Insets bottom="15.0" />
+            </VBox.margin>
+        </TextField>
+        <Label text="Phone Number" />
+        <TextField fx:id="phoneNumber">
+            <VBox.margin>
+                <Insets bottom="15.0" />
+            </VBox.margin>
+        </TextField>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Button onAction="#cancelButtonClickEvent" mnemonicParsing="true" prefWidth="1000.0" text="_Cancel" />
+                <Button onAction="#addButtonClickEvent" mnemonicParsing="true" prefWidth="1000.0" text="_Add" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
 </VBox>

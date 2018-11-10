@@ -20,8 +20,8 @@
                         <ListView fx:id="contactsList" prefHeight="468.0" prefWidth="135.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <Button fx:id="deleteButton" mnemonicParsing="true" prefWidth="1000.0" text="_Delete Selected" />
-                                <Button fx:id="addButton" mnemonicParsing="true" prefWidth="1000.0" text="_Add New" />
+                                <Button onAction="#deleteButtonClickEvent" mnemonicParsing="true" prefWidth="1000.0" text="_Delete Selected" />
+                                <Button onAction="#addButtonClickEvent" mnemonicParsing="true" prefWidth="1000.0" text="_Add New" />
                             </children>
                         </HBox>
                     </children>

@@ -8,6 +8,7 @@ package contactsapp.controllers;
 import contactsapp.Contact;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -23,46 +24,46 @@ public class NewContactFXMLController implements Initializable {
     private final ContactsAppFXMLController mainWindow;
 
     @FXML
-    private Button cancelButton, addButton;
-
-    @FXML
     private TextField firstName, lastName, eMail, phoneNumber;
 
     public NewContactFXMLController(ContactsAppFXMLController mainWindow) {
         this.mainWindow = mainWindow;
     }
 
+    @FXML
+    private void cancelButtonClickEvent(ActionEvent event) {
+        ((Stage) ((Button) event.getSource()).getScene().getWindow()).close();
+    }
+
+    @FXML
+    private void addButtonClickEvent(ActionEvent event) {
+        if (this.firstName.getText().isEmpty()) {
+            this.firstName.requestFocus();
+            return;
+        } else if (this.lastName.getText().isEmpty()) {
+            this.lastName.requestFocus();
+            return;
+        } else if (this.eMail.getText().isEmpty()) {
+            this.eMail.requestFocus();
+            return;
+        } else if (this.phoneNumber.getText().isEmpty() || this.phoneNumber.getText().length() != 8) {
+            this.phoneNumber.requestFocus();
+            return;
+        }
+
+        int parsedPhoneNumber;
+        try {
+            parsedPhoneNumber = Integer.parseInt(this.phoneNumber.getText());
+        } catch (NumberFormatException ignored) {
+            this.phoneNumber.requestFocus();
+            return;
+        }
+
+        this.mainWindow.getContacts().add(new Contact(this.firstName.getText(), this.lastName.getText(), this.eMail.getText(), parsedPhoneNumber));
+        ((Stage) ((Button) event.getSource()).getScene().getWindow()).close();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cancelButton.setOnAction(event -> {
-            ((Stage) cancelButton.getScene().getWindow()).close();
-        });
-
-        addButton.setOnAction(event -> {
-            if (firstName.getText().isEmpty()) {
-                firstName.requestFocus();
-                return;
-            } else if (lastName.getText().isEmpty()) {
-                lastName.requestFocus();
-                return;
-            } else if (eMail.getText().isEmpty()) {
-                eMail.requestFocus();
-                return;
-            } else if (phoneNumber.getText().isEmpty() || phoneNumber.getText().length() != 8) {
-                phoneNumber.requestFocus();
-                return;
-            }
-
-            int parsedPhoneNumber;
-            try {
-                parsedPhoneNumber = Integer.parseInt(phoneNumber.getText());
-            } catch (NumberFormatException e) {
-                phoneNumber.requestFocus();
-                return;
-            }
-
-            mainWindow.getContacts().add(new Contact(firstName.getText(), lastName.getText(), eMail.getText(), parsedPhoneNumber));
-            ((Stage) cancelButton.getScene().getWindow()).close();
-        });
     }
 }
