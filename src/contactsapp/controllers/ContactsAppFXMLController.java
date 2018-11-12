@@ -77,9 +77,15 @@ public class ContactsAppFXMLController implements Initializable {
         this.contactsList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             // Update contact. Catches NPE on first selection and addition to empty list. Catches NFE on invalid number input.
             try {
-                oldValue.setFirstName(this.firstName.getText());
-                oldValue.setLastName(this.lastName.getText());
-                oldValue.setEmail(this.eMail.getText());
+                if (!this.firstName.getText().isEmpty()) {
+                    oldValue.setFirstName(this.firstName.getText());
+                }
+                if (!this.lastName.getText().isEmpty()) {
+                    oldValue.setLastName(this.lastName.getText());
+                }
+                if (!this.eMail.getText().isEmpty()) {
+                    oldValue.setEmail(this.eMail.getText());
+                }
                 if (this.phoneNumber.getText().length() == 8) {
                     oldValue.setPhoneNumber(Integer.parseInt(this.phoneNumber.getText()));
                 }
